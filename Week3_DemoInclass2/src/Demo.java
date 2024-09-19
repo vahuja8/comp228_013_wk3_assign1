@@ -1,12 +1,27 @@
+import java.security.SecureRandom;
+import java.util.Random;
 import java.util.Scanner;
 
 public class Demo {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         int score = 0; // Initialize the score to zero
+        
+        // randomNumbers object will produce secure random numbers
+        SecureRandom random_option = new SecureRandom(); 
+        
+
 
         // Array to store correct answers for each question
         char[] correctAnswers = {'a', 'b', 'c', 'd', 'a'};
+        
+        
+        String[] introMessage= {"excellent !" , "Good! " ," Keep it up.." , "Nice Work!", "Dont Sleep!!!!!!!" };
+        
+        String[] answerComment= {"you did nice!!- success", "try again!!!"};
+        
+        String[] resultComment= {"A","B", "C,", "D" ,"F" };
+        
 
         // Array to store questions
         String[] questions = {
@@ -27,6 +42,9 @@ public class Demo {
 
         // Loop through each question
         for (int i = 0; i < questions.length; i++) {
+        	
+        	System.out.println(introMessage[i]);
+        	
             System.out.println(questions[i]);
             char userAnswer = scanner.next().charAt(0); // Read user's answer
 
@@ -40,6 +58,10 @@ public class Demo {
         double percentage = (double) score / questions.length * 100;
         System.out.println("Your score: " + score + "/" + questions.length);
         System.out.println("Percentage: " + percentage + "%");
+        
+        /*
+         * implement -- Grade calculation using if-else or switch case!!
+         */
 
         scanner.close();
     }
